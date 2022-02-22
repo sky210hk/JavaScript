@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        //매개변수 까지 숫자의 합을 구하는 함수
+        function func01(a) {
+
+            var sum = 0;
+            for(var i = 1; i <= a; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+
+        var result = func01(10);
+        console.log(result);
+
+        console.log("--------------------------")
+        //매개변수가 여러개
+        function func02(a, b, c, d, e) {
+            return a + b + c + d + e;
+        }
+
+        var result2 = func02(1, 2, 3, 4, 5);
+        console.log(result2);
+
+        var result3 = func02(1, 2); //5개가 아닌 2개만 넣는 경우
+        console.log(result3); //호출은 되지만 undefined형태
+
+        //**익명함수
+        //var compute = func02; //변수에 함수 저장(가능)
+        var compute = function(x, y) {
+            
+            return x + y;
+        };
+        var result4 = compute(1, 2);
+        console.log("익명함수", result4);
+
+
+    </script>
+
+
+
+</body>
+</html>
