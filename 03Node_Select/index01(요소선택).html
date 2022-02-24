@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn1">체크박스요소확인</button>
+
+    <input type="checkbox" name="inter" value="1">JAVA
+    <input type="checkbox" name="inter" value="2">JSP
+    <input type="checkbox" name="inter" value="3">DB
+    <input type="checkbox" name="inter" value="4">JSX
+    <input type="checkbox" name="inter" value="5">JS
+
+    <hr>
+    
+    <script>
+        
+        var btn1 = document.getElementById("btn1"); //id가 btn1인 value를 가져온다.
+        btn1.onclick = function() { //기본 이벤트 생성
+            
+            //name속성이 inter인 것을 선택
+            var inter = document.getElementsByName("inter"); //name이 inter인 value를 가져온다.
+            
+            for(var i = 0; i < inter.length; i++) { //배열이므로 반복문으로 빼냄
+                console.log(inter[i]); //인덱스 i번째를 드러냄
+                console.log(inter[i].value); //인덱스 i번째 요소의 value값을 끄집어냄
+                console.log(inter[i].checked); //인덱스 i번째 요소의 check여부   
+            }
+        }
+    </script>
+
+    <button id="btn2">라디오 버튼 확인</button>
+    <input type="radio" name="major" class="nice" value="1">프로그램 <!-- 클래스 : 디자인을 입힐 때 사용 -->
+    <input type="radio" name="major" class="nice" value="2">디자인 
+    <input type="radio" name="major" class="nice" value="3">네트워크 
+    <input type="radio" name="major" class="nice" value="4">운영체제 
+
+    <script>
+
+        var btn2 = document.getElementById("btn2"); //id가 btn2인 value를 가져온다.
+        btn2.onclick = function () {
+
+            //classname속성이 nice인 것을 선택
+            var nice = document.getElementsByClassName("nice");
+            
+            for(var i = 0; i < nice.length; i++) {
+                console.log(nice[i]);
+                console.log(nice[i].value); //radio버튼의 value
+                console.log(nice[i].checked); //radio버튼의 check여부
+            }
+        }
+    </script>
+
+    <hr>
+
+    <button id="btn3">태그로 선택하기</button>
+    <select id="select1"> <!-- 1. select태그에 id를 부여하고 -->
+        <option>010</option>
+        <option>031</option>
+        <option>02</option>
+        <option>051</option>
+        <option>052</option>
+    </select>
+
+    <script>
+        var btn3 = document.getElementById("btn3");
+        btn3.onclick = function() {
+
+            //하위 태그로 찾기
+            var select1 = document.getElementById("select1"); // 2. select1 변수에 id가 select1인 value를 저장
+            var option = select1.getElementsByTagName("option"); //3. option 변수에 select1변수에서 id가 option인 value를 저장
+
+            for(var i = 0; i < option.length; i++) {
+                console.log(option[i] );
+                console.log(option[i].value ); //option의 value
+                console.log(option[i].selected ); //선택여부
+            }
+        }
+    </script>
+
+
+
+
+
+</body>
+</html>

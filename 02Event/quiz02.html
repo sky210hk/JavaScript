@@ -12,23 +12,28 @@
         //위쪽...
         //1. 확인창은 confirm("질문") - 예 클릭 시 true, 아니오 클릭 시 false 반환
         //2. location.href = "경로";
-        function check() {
-            confirm("이동하시겠습니까?");
-            
-            if(true) {
-                
-               if(id === "btn1") {
-               location.href = "http://www.naver.com";
-               }
-               location.href = "http://www.google.com";
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+
+        
+        window.onload = function () { //온로드를 걸어야 null값이 안나온다.
+
+            //btn1이벤트
+            btn1.onclick = function () {
+
+                if(confirm("이동하시겠습니까?")) {
+                    location.href = "https://www.naver.com"; //경로로 이동
+                }
+            }
+
+            //btn2이벤트
+            btn2.onclick = function () {
+
+                if(confirm("이동하시겠습니까?")) {
+                    location.href = "https://www.google.com"; //경로로 이동
+                }
             }
         }
-
-
-
-
-
-
     </script>
 
     <button id="btn1" onclick="check(this)">네이버로이동</button>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" value="0" id="result">
+
+    <button type="button" onclick="calc(this)">+</button>
+    <button type="button" onclick="calc(this)">-</button>
+
+    <script>
+     
+        function calc(x) {
+
+            var result = document.getElementById("result"); //id가 result인 value를 가져온다.            
+            
+            if(x.innerHTML === "+") { //얻어온 문자열이 + 이면            
+                
+                result.value++; //value값을 증가시킨다.
+            
+            } else { //얻어온 문자열이 + 이 아니면("- 이면")
+                
+                if(result.value == 0) { //그 중 0보다 작게되는 경우
+                    alert("0보다 작을 수 없습니다.");
+                    return;
+                }
+
+                result.value--; //value값을 감소시킨다.
+
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
