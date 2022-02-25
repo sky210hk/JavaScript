@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input:focus {
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <section>
+        <form >
+            <label>아이디</label>
+            <input type="text" name="id" id="id"><br>
+            <span class="idMsg"></span><br>
+            
+            <label>비밀번호</label>
+            <input type="password" name="pw" id="pw"><br>
+            <span class="pwMsg"></span><br>
+        </form>
+    </section>
+    
+    <!-- onkeyup, onkeypress 이벤트를 사용 -->
+    <script>
+
+        //아이디
+        var id = document.getElementById("id"); //id가 id인 엘리멘트를 담은 변수 id선언
+        var idMsg = document.querySelector(".idMsg"); //idMsg클래스를 담은 변수 idMsg선언
+
+        id.onkeyup = function() {
+                       
+            if(id.value.length < 4) { //id의 value값의 길이가 4보다 작은 경우
+                id.style.border = "5px solid red"; //스타일 변경
+                idMsg.innerHTML = "아이디는 4글자 이상입니다."; //html문구 삽입
+            } else {
+                id.style.border = "5px solid green"; //스타일 변경
+                idMsg.innerHTML = ""; //html문구 삽입(없음)
+            }
+        }
+
+        //비밀번호
+        var pw = document.getElementById("pw");
+        var pwMsg = document.querySelector(".pwMsg"); 
+        
+        pw.onkeyup = function() {
+
+            if(pw.value.length < 9) { 
+                pw.style.border = "5px solid red";
+                pwMsg.innerHTML = "비밀번호는 9글자 이상입니다.";
+            } else {
+                pw.style.border = "5px solid green";
+                idMsg.innerHTML = "";        
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul class="box">
+        <li>css속성변경하기</li>
+        <li>style속성변경하기</li>
+        <li>표기법</li>
+    </ul>
+
+    <button class="btn">css문법변경</button>
+
+    <script>
+        var btn = document.querySelector(".btn"); //클래스 이름이 btn인 것 얻어오기
+        btn.onclick = function() {
+
+            var list = document.querySelectorAll(".box > li"); //박스클래스 하위의 li태그 얻어오기
+
+            for(var i = 0; i < list.length; i++) {
+                //console.log(list[i]); : li태그 3개가 동시에 등장
+
+                list[i].style.backgroundColor = "red"; //css문법 background-color를 red로 변경한다.
+                list[i].style.border = "1px solid #777"; //css문법 border를 1px solid #777로 변경한다.
+            }
+        }
+
+
+    </script>
+    
+</body>
+</html>

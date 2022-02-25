@@ -42,15 +42,12 @@
             for (var i = 0; i < seat.length; i++) {
                 if (seat[i].checked == false) {
                     ++co;
-
                 }
                 if (co == 9) {
                     alert("한개이상의 좌석을 선택하세요")
                     co = 0;
                 } else if (seat[i].checked == true) {
                     arr.push(seat[i].value)
-
-
                 }
 
             }
@@ -58,15 +55,7 @@
             co = 0;
             var jarr = JSON.stringify(arr);
             console.log(jarr)
-
-
         }
-
-
-
-
-
-
     </script>
 
 </body>
