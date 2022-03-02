@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>토글버튼 : 클래스를 이용해서 하나의 버튼에 여러기능을 붙여주는 형태</h3>
+
+    <button class="toggle" id="toggle">토글버튼</button>
+
+    <script>
+        var toggle = document.getElementById("toggle");
+        toggle.onclick = function() {
+
+            if(toggle.className == "toggle") { //toggle의 클래스명이 toggle과 같으면
+                toggle.innerHTML = "변경!"; //토글버튼을 "변경!"으로 바꾼다.
+                toggle.className = "change"; //클래스명을 "change"로 변경한다.
+            } else { //toggle의 클래스명이 toggle이 아니면
+                toggle.innerHTML = "토글버튼"; //원래대로 돌린다.(토글버튼)
+                toggle.className = "toggle"; //원래대로 돌린다.(toggle)
+            }
+
+
+        }
+    </script>
+
+    <hr>
+
+    <h3>기존의 클래스명은 유지하고 토글 클래스를 추가하는 형태</h3>
+    <button type="button" class="btn btnX aaa" id="toggle2"> <!-- 미리 클래스명에 aaa를 추가해논다. -->
+        토글버튼
+    </button>
+
+    <script>
+        var toggle2 = document.getElementById("toggle2");
+        toggle2.onclick = function() {
+
+            //토글클래스이름 - aaa
+            if(toggle2.classList.contains("aaa")) { //toggle2의 클래스명에 aaa가 있으면
+                toggle2.innerHTML = "변경!"; 
+                toggle2.classList.remove("aaa"); //클래스명 aaa삭제
+
+            } else { //toggle2의 클래스명에 aaa가 없으면
+                toggle2.innerHTML = "토글버튼";
+                toggle2.classList.add("aaa"); //클래스명 aaa추가
+            }
+
+        }
+    </script>
+
+</body>
+</html>

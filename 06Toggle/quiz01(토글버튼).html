@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 아티클 영역 */
+        .center {text-align: center;}
+        
+        /* 섹션 영역 */
+        .content {margin: 0 auto; width: 800px; overflow: hidden;}
+        
+        .content, .left {padding: 5px;}
+        .content, .inner {border: 1px solid #777;}
+        
+        .left {float: left; width: 50%; box-sizing: border-box;}
+        
+        .inner {height: 300px;}
+        img {width: 100%; height: 100%;}
+    </style>
+
+</head>
+<body>
+    <article>
+        <div class="center">
+            <h3>toggle형태 활용하기</h3>
+            <button type="button" class="dark" id="toggle1">어둡게보기</button>
+            <!-- 클래스명을 name으로 지정하면 JS의 키워드랑 겹침 -->
+            <button type="button" class="name2" id="toggle2">이름보기</button> 
+        </div>
+    </article>
+
+    <hr>
+    
+    <section>
+        <div class="content"><!-- 외곽 상자 -->
+
+            <div class="left"><!-- 숨김 상자 -->
+                <div class="inner"><!-- 그리드 영역 -->
+                    <img src="1.jpg" alt="이미지">
+                </div>    
+            </div>
+
+            <div class="left"><!-- 숨김 상자 -->
+                <div class="inner"><!-- 그리드 영역 -->
+                    <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 프로그래밍에도 사용되고 있다.</p>
+                    <a href="#">위키백과</a>                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var body = document.body;
+        
+        var toggle1 = document.getElementById("toggle1");
+        toggle1.onclick = function() {
+
+            if(toggle1.className == "dark") {
+                toggle1.innerHTML = "밝게보기";
+                toggle1.className = "light";
+                body.style.backgroundColor = "black";
+                
+                var textColor = document.querySelectorAll("h3, a, p"); 
+                for(var i = 0; i < textColor.length; i++) {
+                textColor[i].style.color = "white"; //글자는 흰색
+                }
+
+            } else {
+                toggle1.innerHTML = "어둡게보기";
+                toggle1.className = "dark";
+                body.style.backgroundColor = "white";
+
+                var textColor = document.querySelectorAll("h3, a, p"); 
+                for(var i = 0; i < textColor.length; i++) {
+                textColor[i].style.color = "black"; //글자는 흰색
+                }
+
+            }
+        }
+
+        var toggle2 = document.getElementById("toggle2");
+        toggle2.onclick = function() {
+
+            if(toggle2.className == "name2") {
+                toggle2.innerHTML = "내용보기";
+                toggle2.className = "content2";
+
+                var content2_p = document.querySelector("p");
+                content2_p.innerHTML = "홍길자<br>20세<br>능력단위<br>Java, Oracle, JSP, CSS, Javascript";
+
+                var content2_a = document.querySelector("a");
+                content2_a.style.display = "none";
+
+            } else {
+                toggle2.innerHTML = "이름보기";
+                toggle2.className = "name2";
+
+                var content2_p = document.querySelector("p");
+                content2_p.innerHTML = "<p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 프로그래밍에도 사용되고 있다.</p>"
+                
+                var content2_a = document.querySelector("a");
+                content2_a.style.display = "";
+            }
+        }
+        
+    </script>
+</body>
+</html>

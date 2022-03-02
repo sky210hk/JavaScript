@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" class="btn btn-default" id="btn">
+        클래스 속성 제어하기
+    </button>
+    
+    <script>
+        var btn = document.getElementById("btn");
+        console.log(btn.type);
+        console.log(btn.id);
+        //undefined가 뜸 : class가 JS의 키워드라서 접근이 불가
+        console.log(btn.class); 
+
+        console.log("-------------------------")
+        
+        console.dir(btn);
+        console.log(btn.className);
+        //클래스명이 2개이기 때문에 배열형태로 나옴
+        console.log(btn.classList); 
+
+        console.log("-------------------------")
+        
+        //add : 클래스명이 있는 배열에 클래스명"xxxx"을 삽입한다. 현재 클래스명 : btn btn-default xxxx
+        btn.classList.add("xxxx");
+
+        //remove : 클래스명이 있는 배열에서 클래스명 "btn"을 제거한다. 현재 클래스명 : btn-default xxxx
+        btn.classList.remove("btn");
+
+        //contains : 클래스명의 포함여부를 확인한다. (true, false값으로 반환)
+        btn.classList.contains("btn");
+        console.log(btn.classList.contains("btn")); //false : 앞서 삭제했기 때문
+
+        //toggle : 클래스명이 없으면 추가, 있으면 삭제
+        btn.classList.toggle("aaa"); // 1번쓰니까 "aaa"를 추가해줌
+        btn.classList.toggle("aaa"); // 2번쓰니까 기존의 aaa를 삭제함
+
+    </script>
+
+</body>
+</html>

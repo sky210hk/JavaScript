@@ -25,7 +25,7 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody class="table">
             <tr>
                 <td>
                     <button type="button" onclick="down(this)">▽</button>
@@ -81,18 +81,33 @@
 
     <script>
         function down(node) {
-            console.dir(node); //사용할 수 있는 기능을 쫙 나열한다.
+            //클릭한 버튼의 부모태그 : td한번, tr한번 타고 올라가야 하므로 2번
+            var current = node.parentElement.parentElement;
 
-            //부모요소를 통으로 가져옴(주석 같은 문자열은 제외하고 바로 엘리먼트 형식으로 선택)
-            console.log(node.parentElement);  
-            //부모요소를 통으로 가져옴(text, 주석, 엘리먼트 형식으로 선택)
-            console.log(node.parentNode); 
+            //다음 형제태그와 연결해아 하므로 nextElementSibling 1번
+            var next = current.nextElementSibling;
+
+            //마지막 행이라면 종료
+            if(next == null) {
+                alert("마지막 행입니다.");
+                return;
+            }
+            //insertBefore(삽입노드, 기준노드); : 기준노드 앞에 삽입노드를 추가
+            var table = document.querySelector(".table");
+            table.insertBefore(next, current); // current 앞에 next를 추가
+        }
+        
+        function up(node) {
+            var current = node.parentElement.parentElement;
+            var previous = current.previousElementSibling
             
-            console.log(node.nextElementSibling); //다음 형제 노드
-            console.log(node.previousElementSibling); //이전 형제 노드
+            if(previous == null) {
+                alert("첫 번째 행입니다.");
+                return;
+            }
+            var table = document.querySelector(".table");
+            table.insertBefore(current, previous);
 
-            console.log(node.firstElementChild); //첫 번째 자식요소 (지금은 없음)
-            console.log(node.lastElementChild); //마지막 자식요소 (지금은 없음)
         }
     </script>
 
