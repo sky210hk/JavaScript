@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>이벤트 위임 방식으로 처리하기</h3>
+
+    <ul class="parent">
+        <li>1. 홍길동</li>
+        <li>2. 이순신</li>
+        <li>3. 홍길자</li>
+        <li>4. 박찬호</li>
+        <li>5. 신사임당</li>
+    </ul>
+
+    선택된 태그의 값:
+    <p class="result">
+
+    </p>
+
+    <script>
+        //이벤트 위임 - 부모에 건 이벤트가 자식으로 위임되는 특성
+        var parent = document.querySelector(".parent"); 
+
+        var result = document.querySelector(".result");
+        parent.onclick = function() { //부모에 이벤트를 건 상태
+
+            //이벤트가 정확히 li태그에서만 동작되도록 만들어야 한다.(완성도 up)
+            if(event.target.tagName != "LI") return; //tagName이 LI태그가 아니라면 반환
+
+            console.log(event);
+            console.log(event.target); //target : 이벤트(onclick)가 적용된 태그(자식)
+            console.log(event.currentTarget); //currentTarget : 실제로 이벤트가 걸려들어간 곳(부모)
+
+            result.innerHTML = event.target.innerHTML; 
+
+        }
+
+    </script>
+
+</body>
+</html>

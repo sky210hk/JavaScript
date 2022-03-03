@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .func1 {width: 300px; height: 300px; background-color: red;}
+        .func2 {width: 200px; height: 200px; background-color: blue;}
+        .func3 {width: 100px; height: 100px; background-color: yellow;}
+    </style>
+</head>
+<body>
+
+    <h3>버블링 vs 캡쳐링</h3>
+
+    <div class="func1">
+        <div class="func2">
+            <div class="func3">func3(자식)</div>
+        </div>
+    </div>
+
+    <script>
+
+        //DOM이벤트의 동작방식은 버블링이다.
+        //버블링은 자식 -> 부모이벤트를 치고 올라가는 특성이 있다.
+        //동작순서 : 3 -> 2 -> 1
+/*         var func1 = document.querySelector(".func1");
+        func1.onclick = function() {
+            alert("func1번"); //무엇을 누르던지 실행된다 : 부모클래스에 이벤트를 걸었기 때문
+        }
+
+        var func2 = document.querySelector(".func2");
+        func2.onclick = function() {
+            alert("func2번");
+            //버블링 페이즈의 중단(그닥 중요하진 않음)
+            event.stopPropagation();
+        }
+
+        var func3 = document.querySelector(".func3");
+        func3.onclick = function() {
+            alert("func3번");
+        } */
+
+        var func1 = document.querySelector(".func1");
+        var func2 = document.querySelector(".func2");
+        var func3 = document.querySelector(".func3");
+
+        //이벤트를 거는데 캡쳐링으로 동작시킨다.
+        //버블링과는 달리 동작방식이 반대로 된다.
+        func1.addEventListener("click", function() {alert("func1");}, true); 
+        func2.addEventListener("click", function() {alert("func2");}, true);
+        func3.addEventListener("click", function() {alert("func3");}, true);
+    </script>
+    
+</body>
+</html>
