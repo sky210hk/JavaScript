@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="stopInterval">인터벌중지</button>
+
+    <script>
+
+        //alert와 confirm은 앞에 window.를 생략해도 된다.
+
+        //alert() : 경고창
+        window.alert("경고창");
+
+        //confirm() : 확인창
+        var bool = window.confirm("확인창");
+
+        //setInterval() : 일정 시간마다 함수 반복
+        var stop = setInterval(function() {
+            console.log(1);
+        }, 1000);
+
+        //clearInterval() : setInterval 중지
+        var stopInterval = document.getElementById("stopInterval");
+        stopInterval.onclick = function() {
+
+            clearInterval(stop); //인터벌을 중지시킨다.
+
+        }
+        
+    </script>
+
+
+</body>
+</html>
