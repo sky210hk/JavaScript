@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" class="next">다음데이터가져오기</button>
+    
+    <script>
+        //4862585667736b793130384764644749 : 인증키
+
+        function getAjax(page) {
+
+            var end = page * 10; //끝나는 지점
+            var start = end - 9; //시작 지점
+
+            console.log(start, end);
+
+            //~~부터 ~~까지 데이터를 가져오기
+            fetch("http://openapi.seoul.go.kr:8088/4862585667736b793130384764644749/json/TbPublicWifiInfo/" + start + "/" + end)
+            .then(function(response) {
+                if(response.status != 200) {
+                    alert("요청에 실패했습니다.");
+                } else {
+                    return response.json();
+                }
+    
+            }).then(function(data) {
+                console.log(data);
+            });
+    
+        }
+
+        var pageNum = 1;
+
+        var next = document.querySelector(".next");
+        next.onclick = function() {
+
+            getAjax(pageNum); //호출
+            pageNum++; //페이지 번호 증가(클릭할 때마다)
+
+        }
+
+    </script>
+
+</body>
+</html>
