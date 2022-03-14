@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" class="search">노선별 일별 운행거리 조회버튼</button>
+
+    <script>
+
+        function searchDistance() {
+            //인증키 : 6363586374736b793537716654676f
+            fetch("http://openapi.seoul.go.kr:8088/6363586374736b793537716654676f/json/TbBusRunDistance/1/30/")
+            .then(function(response) {
+
+                if(response.status != 200) {
+                    alert("불러오기에 실패했습니다.");
+                } else {
+                    return response.json();
+                }
+
+            }).then(function(data) {
+                console.log(data);
+            })
+        }
+        var search = document.querySelector(".search");
+        search.onclick = function() {            
+            searchDistance();             
+        }
+        
+    </script>
+    
+</body>
+</html>
